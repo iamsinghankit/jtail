@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.nio.file.*;
 
 /**
+ *  WIP
  * @author iamsinghankit
  */
 public class WatchServiceReader implements JTailReader {
@@ -24,7 +25,7 @@ public class WatchServiceReader implements JTailReader {
             WatchKey key;
             while ((key = watchService.take()) != null) {
                 for (WatchEvent<?> event : key.pollEvents()) {
-                    System.out.println("Event kind:" + event.kind() + ". File affected: " + event.context() + ".");
+                    System.out.println(event);
                 }
                 key.reset();
             }
